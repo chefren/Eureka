@@ -1463,8 +1463,6 @@ class MultivaluedSectionsController: FormViewController {
                         $0.presentationMode = .segueName(segueName: "MultivaluedOnlyDeleteControllerSegue", onDismiss: nil)
                     }
     }
-    
-    
 }
 
 class MultivaluedController: FormViewController {
@@ -1527,6 +1525,22 @@ class MultivaluedController: FormViewController {
                 }
                                 
             }
+            +++
+            MultivaluedSection(multivaluedOptions: [.Insert, .Delete],
+                               header: "Multivalued Image row",
+                               footer: "") {
+                                $0.multivaluedRowToInsertAt = { index in
+                                    return ImageRow(){
+                                        $0.title = "Select img: \(index)"
+                                        $0.sourceTypes = [.Camera]
+                                    }
+                                }
+                                $0 <<< ImageRow(){
+                                    $0.title = "Select img"
+                                    $0.sourceTypes = [.Camera]
+                                }
+                                
+        }
     }
 }
 
