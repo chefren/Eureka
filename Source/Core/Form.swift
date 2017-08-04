@@ -100,7 +100,7 @@ public final class Form {
     /**
      Method used to get all the values of all the rows of the form. Only rows with tag are included.
      
-     - parameter includeHidden: If the values of hidden rows should be included.
+     - parameter includeHidden: If the values of hidden rows should be included (default = false).
      
      - returns: A dictionary mapping the rows tag to its value. [tag: value]
      */
