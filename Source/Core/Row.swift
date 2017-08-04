@@ -55,7 +55,7 @@ open class RowOf<T: Equatable>: BaseRow {
             _value = newValue
             guard let _ = section?.form else { return }
             wasChanged = true
-            if validationOptions.contains(.validatesOnChange) || (wasBlurred && validationOptions.contains(.validatesOnChangeAfterBlurred)) || !isValid {
+            if validationOptions.contains(.validatesOnChange) || (wasBlurred && validationOptions.contains(.validatesOnChangeAfterBlurred)) ||  (!isValid && validationOptions != .validatesOnDemand) {
                 validate()
             }
         }
@@ -69,9 +69,6 @@ open class RowOf<T: Equatable>: BaseRow {
         get { return value }
         set { value = newValue as? T }
     }
-
-    /// Variable used in rows with options that serves to generate the options for that row.
-    public var dataProvider: DataProvider<T>?
 
     /// Block variable used to get the String that should be displayed for the value of this row.
     public var displayValueFor: ((T?) -> String?)? = {
