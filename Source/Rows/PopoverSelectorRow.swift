@@ -23,8 +23,9 @@
 // THE SOFTWARE.
 
 import Foundation
+import UIKit
 
-open class _PopoverSelectorRow<Cell: CellType> : SelectorRow<Cell> where Cell: BaseCell, Cell: TypedCellType {
+open class _PopoverSelectorRow<Cell: CellType> : SelectorRow<Cell> where Cell: BaseCell {
 
     public required init(tag: String?) {
         super.init(tag: tag)
